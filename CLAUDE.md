@@ -3,7 +3,7 @@
 ## What This Is
 A themeable HTML presentation framework with embedded editing, comments, narration, and save. Clone the repo, pick a theme, generate a template, and use Claude skills to create and narrate presentations.
 
-**If the user asks how this works or how to get started, explain it directly.** Walk them through the workflow: pick a theme (or create a custom one), generate a template, storyboard the presentation, then build it. Point out `presentations/smart-presentations-intro.html` as a working example they can open in their browser. Emphasize that slide layouts in the templates are just starting points — you can build any HTML structure the user describes. Themes, templates, and the framework itself are all fully customizable.
+**If the user asks how this works or how to get started, start by suggesting they open `presentations/smart-presentations-intro.html` in their browser first** — it's a 15-slide deck that explains the framework itself and shows off the slide types, layouts, and theme system in action. After they've seen it, walk them through the workflow: pick a theme (or ask you to create a custom one), generate a template, storyboard the presentation together, then build it. Emphasize that slide layouts in the templates are just starting points — you can build any HTML structure the user describes. Themes, templates, and the framework itself are all fully customizable.
 
 ## Project Structure
 - `framework.html` — Engine-only template (no theme CSS — use `generate-template` skill)
