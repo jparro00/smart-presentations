@@ -1,0 +1,603 @@
+/* ============================================================
+   THEME: Warm Earthy
+   Version: 1.0
+   Fonts: https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Lora:ital,wght@0,700;1,700&display=swap
+   ============================================================ */
+
+/* --- Brand Tokens --- */
+:root {
+  /* Colors */
+  --color-primary: #B8860B;
+  --color-primary-bright: #D4A017;
+  --color-secondary: #C2603F;
+  --color-tertiary: #7C8A52;
+  --color-bg-black: #1A1510;
+  --color-bg-dark: #2A231B;
+  --color-bg-darker: #211A13;
+  --color-bg-alt: #1E1812;
+  --color-gray: #8B7D6B;
+  --color-white: #FAF3E8;
+  --color-text-primary: #FAF3E8;
+  --color-text-secondary: #A89880;
+  --color-text-dim: rgba(250,243,232,0.35);
+  --color-text-body: #C9B99A;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #B8860B, #D4A017);
+  --gradient-secondary: linear-gradient(135deg, #D4A017, #C2603F);
+  --gradient-full: linear-gradient(135deg, #B8860B, #D4A017, #C2603F);
+
+  /* Typography */
+  --font-primary: 'Inter', Arial, Helvetica, sans-serif;
+  --font-accent: 'Lora', Georgia, serif;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-semi: 600;
+  --fw-bold: 700;
+
+  /* Type Scale (fluid) */
+  --fs-display: clamp(2.2rem, 5vw, 3.8rem);
+  --fs-h1: clamp(1.6rem, 3.5vw, 2.6rem);
+  --fs-h2: clamp(1.1rem, 2vw, 1.5rem);
+  --fs-h3: clamp(1rem, 1.6vw, 1.25rem);
+  --fs-body: clamp(0.9rem, 1.4vw, 1.05rem);
+  --fs-small: clamp(0.8rem, 1.2vw, 0.9rem);
+  --fs-label: 0.7rem;
+  --fs-caption: 0.75rem;
+
+  /* Spacing */
+  --sp-xs: 8px;
+  --sp-sm: 16px;
+  --sp-md: 24px;
+  --sp-lg: 32px;
+  --sp-xl: 48px;
+  --sp-2xl: 64px;
+  --sp-3xl: 80px;
+
+  /* Slide dimensions */
+  --slide-pad-top: 60px;
+  --slide-pad-x: 80px;
+  --slide-pad-bottom: 40px;
+
+  /* Engine chrome */
+  --color-panel-bg: #241D15;
+  --color-panel-border: rgba(168,152,128,0.12);
+  --color-input-bg: rgba(250,243,232,0.05);
+  --color-input-border: rgba(168,152,128,0.2);
+
+  /* Transitions */
+  --tr-fast: 200ms ease;
+  --tr-normal: 300ms ease;
+  --tr-slow: 500ms ease;
+
+  /* Z-index layers */
+  --z-slide: 1;
+  --z-chrome: 100;
+  --z-panel: 400;
+  --z-toolbar: 300;
+  --z-toast: 400;
+}
+
+
+/* ============================================================
+   TYPOGRAPHY CLASSES
+   ============================================================ */
+
+.display {
+  font-size: var(--fs-display);
+  font-weight: var(--fw-light);
+  line-height: 1.15;
+  color: var(--color-white);
+}
+
+.h1 { font-size: var(--fs-h1); font-weight: var(--fw-bold); line-height: 1.2; color: var(--color-white); }
+.h2 { font-size: var(--fs-h2); font-weight: var(--fw-bold); line-height: 1.3; color: var(--color-white); }
+.h3 { font-size: var(--fs-h3); font-weight: var(--fw-bold); line-height: 1.35; color: var(--color-white); }
+
+.body-text {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-light);
+  line-height: 1.7;
+  color: var(--color-text-body);
+}
+
+.small-text { font-size: var(--fs-small); font-weight: var(--fw-regular); line-height: 1.6; color: var(--color-text-secondary); }
+
+.label {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-primary-bright);
+  margin-bottom: var(--sp-sm);
+}
+
+.accent {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 700;
+  color: var(--color-primary-bright);
+}
+
+.display .accent, .h1 .accent { color: var(--color-primary-bright); }
+
+.subtitle {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-light);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-width: 650px;
+}
+
+
+/* ============================================================
+   SLIDE BACKGROUNDS
+   ============================================================ */
+
+.bg-black   { background: var(--color-bg-black); }
+.bg-dark    { background: var(--color-bg-dark); }
+.bg-darker  { background: var(--color-bg-darker); }
+.bg-green   { background: #1E1812; }
+
+
+/* ============================================================
+   SLIDE TYPE: TITLE
+   ============================================================ */
+
+.slide-title {
+  justify-content: flex-end;
+  padding-bottom: 80px;
+  background: var(--color-bg-black);
+}
+
+.slide-title .display { max-width: 800px; margin-bottom: var(--sp-md); }
+
+.slide-title-centered {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: var(--color-bg-black);
+}
+
+.slide-title-centered .display { max-width: 900px; }
+
+
+/* ============================================================
+   SLIDE TYPE: DIVIDER
+   ============================================================ */
+
+.slide-divider {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: var(--color-bg-black);
+}
+
+.slide-divider .act-label {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-dim);
+  margin-bottom: 20px;
+}
+
+.slide-divider .display { max-width: 800px; }
+
+.slide-divider .act-bar {
+  width: 80px;
+  height: 4px;
+  margin-top: var(--sp-md);
+}
+
+.act-bar.green   { background: var(--color-primary-bright); }
+.act-bar.blue    { background: var(--color-secondary); }
+.act-bar.gradient { background: var(--gradient-full); }
+
+
+/* ============================================================
+   SLIDE TYPE: CONTENT (default full-width)
+   ============================================================ */
+
+.slide-content {
+  background: var(--color-bg-dark);
+  padding-top: var(--sp-3xl);
+}
+
+.slide-content .slide-label { /* section label above title */ }
+.slide-content .h1 { margin-bottom: var(--sp-sm); }
+.slide-content .body-text { max-width: 900px; }
+
+
+/* ============================================================
+   SLIDE TYPE: CALLOUT (big statement)
+   ============================================================ */
+
+.slide-callout {
+  justify-content: center;
+  background: var(--color-bg-dark);
+}
+
+.slide-callout .callout-text {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: var(--fw-light);
+  line-height: 1.3;
+  max-width: 800px;
+  color: var(--color-white);
+}
+
+.slide-callout .callout-text .accent { font-size: inherit; }
+
+
+/* ============================================================
+   SLIDE TYPE: STATS (big numbers)
+   ============================================================ */
+
+.slide-stats {
+  background: var(--color-bg-dark);
+}
+
+.stat-grid {
+  display: grid;
+  gap: var(--sp-lg);
+  margin-top: var(--sp-lg);
+}
+
+.stat-grid-2 { grid-template-columns: 1fr 1fr; }
+.stat-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+.stat-grid-4 { grid-template-columns: 1fr 1fr 1fr 1fr; }
+
+.stat-block { text-align: center; }
+
+.stat-number {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: var(--fw-bold);
+  color: var(--color-primary-bright);
+  line-height: 1;
+  margin-bottom: var(--sp-xs);
+}
+
+.stat-label {
+  font-size: var(--fs-small);
+  color: var(--color-text-secondary);
+  font-weight: var(--fw-regular);
+}
+
+
+/* ============================================================
+   SLIDE TYPE: NUMBERED LIST
+   ============================================================ */
+
+.slide-numbered-list { background: var(--color-bg-dark); }
+
+.ask-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-sm);
+  margin-top: var(--sp-lg);
+  max-width: 900px;
+}
+
+.ask-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px 24px;
+  border-left: 3px solid var(--color-primary-bright);
+  background: rgba(250,243,232,0.04);
+  border-radius: 0 4px 4px 0;
+}
+
+.ask-item.blue { border-left-color: var(--color-secondary); }
+
+.ask-number {
+  font-size: 1.8rem;
+  font-weight: var(--fw-bold);
+  color: var(--color-primary-bright);
+  line-height: 1;
+  min-width: 36px;
+}
+
+.ask-item.blue .ask-number { color: var(--color-secondary); }
+
+.ask-body .h3 { margin-bottom: 6px; }
+.ask-body .small-text { margin-top: 4px; }
+
+
+/* ============================================================
+   SLIDE TYPE: TIMELINE
+   ============================================================ */
+
+.slide-timeline { background: var(--color-bg-dark); }
+
+.timeline {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  margin-top: var(--sp-xl);
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  right: 40px;
+  height: 2px;
+  background: rgba(250,243,232,0.12);
+}
+
+.timeline-node {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 0 12px;
+}
+
+.timeline-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-primary-bright);
+  margin-bottom: var(--sp-sm);
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-dot.blue { background: var(--color-secondary); }
+.timeline-dot.teal { background: var(--color-tertiary); }
+
+.timeline-title {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-bold);
+  color: var(--color-white);
+  margin-bottom: 6px;
+}
+
+.timeline-desc {
+  font-size: var(--fs-caption);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+
+/* ============================================================
+   SLIDE TYPE: COMPARISON
+   ============================================================ */
+
+.slide-comparison { background: var(--color-bg-dark); }
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-xl);
+  margin-top: var(--sp-lg);
+}
+
+.comparison-col .h3 { margin-bottom: var(--sp-sm); padding-bottom: var(--sp-sm); }
+.comparison-col:first-child .h3 { border-bottom: 2px solid var(--color-primary-bright); }
+.comparison-col:last-child .h3 { border-bottom: 2px solid var(--color-secondary); }
+
+
+/* ============================================================
+   SLIDE TYPE: DIAGRAM (SVG area)
+   ============================================================ */
+
+.slide-diagram { background: var(--color-bg-dark); }
+
+.diagram-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--sp-md);
+}
+
+.diagram-area svg { max-width: 100%; max-height: 100%; }
+
+
+/* ============================================================
+   SLIDE TYPE: END
+   ============================================================ */
+
+.slide-end {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: var(--color-bg-black);
+}
+
+.slide-end .brand-mark { font-size: 2.2rem; margin-bottom: var(--sp-md); }
+.slide-end .tagline { font-style: italic; color: var(--color-text-secondary); font-size: var(--fs-body); margin-bottom: var(--sp-xl); }
+.slide-end .copyright { font-size: 0.65rem; color: var(--color-text-dim); max-width: 500px; line-height: 1.6; }
+
+
+/* ============================================================
+   LAYOUT MODIFIERS
+   ============================================================ */
+
+.layout-two-col .slide-body { display: grid; grid-template-columns: 1.3fr 1fr; gap: 36px; align-items: start; }
+.layout-two-col-equal .slide-body { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-xl); align-items: start; }
+.layout-three-col .slide-body { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--sp-lg); align-items: start; }
+.layout-sidebar .slide-body { display: grid; grid-template-columns: 2fr 1fr; gap: var(--sp-xl); align-items: start; }
+
+
+/* ============================================================
+   INNER COMPONENTS
+   ============================================================ */
+
+/* --- Green Bar Accent ------------------------------------- */
+.green-bar { width: 56px; height: 4px; background: var(--color-primary-bright); margin: 20px 0; }
+.green-bar.small { width: 28px; height: 3px; }
+.green-bar.blue { background: var(--color-secondary); }
+
+/* --- Brand Line ------------------------------------------- */
+.brand-line { width: 80px; height: 3px; background: var(--color-primary); margin: 20px 0; }
+
+/* --- Card ------------------------------------------------- */
+.card {
+  background: rgba(250,243,232,0.05);
+  border: 1px solid rgba(184,134,11,0.18);
+  border-radius: 4px;
+  padding: var(--sp-md);
+}
+
+.card-accent-rule { width: 28px; height: 3px; background: var(--color-primary-bright); margin-bottom: 14px; }
+.card-accent-rule.blue { background: var(--color-secondary); }
+.card-accent-rule.teal { background: var(--color-tertiary); }
+
+/* --- Card Grid -------------------------------------------- */
+.card-grid { display: grid; gap: var(--sp-sm); margin-top: var(--sp-lg); }
+.card-grid-2 { grid-template-columns: 1fr 1fr; }
+.card-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+/* --- Col Card (with top accent) --------------------------- */
+.col-card {
+  padding: 28px 32px;
+  background: rgba(250,243,232,0.03);
+  border: 1px solid rgba(250,243,232,0.06);
+  border-radius: 4px;
+  border-top: 3px solid var(--color-primary);
+}
+
+.col-card.teal { border-top-color: var(--color-secondary); }
+.col-card.blue { border-top-color: var(--color-secondary); }
+
+/* --- Callout Box ------------------------------------------ */
+.callout-box {
+  padding: 24px 32px;
+  border-left: 4px solid var(--color-primary-bright);
+  background: rgba(184,134,11,0.08);
+  border-radius: 0 8px 8px 0;
+  margin-top: var(--sp-lg);
+}
+
+.callout-box.blue { border-left-color: var(--color-secondary); background: rgba(194,96,63,0.08); }
+.callout-box strong { color: var(--color-white); }
+
+/* --- Highlight Box ---------------------------------------- */
+.highlight-box {
+  border-left: 4px solid var(--color-primary-bright);
+  padding: 20px 28px;
+  background: rgba(184,134,11,0.08);
+  margin-top: 28px;
+  border-radius: 0 4px 4px 0;
+}
+
+.highlight-box.blue { border-left-color: var(--color-secondary); background: rgba(194,96,63,0.08); }
+.highlight-box strong { color: var(--color-primary-bright); }
+.highlight-box.blue strong { color: var(--color-secondary); }
+
+/* --- Point List ------------------------------------------- */
+.point-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: var(--sp-sm);
+}
+
+.point-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: var(--fs-body);
+  color: var(--color-text-body);
+  line-height: 1.6;
+  font-weight: var(--fw-light);
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(250,243,232,0.06);
+}
+
+.point-list li::before {
+  content: '';
+  width: 8px; height: 8px; min-width: 8px;
+  border-radius: 50%;
+  background: var(--color-primary-bright);
+  margin-top: 8px;
+}
+
+.point-list.blue li::before { background: var(--color-secondary); }
+
+/* --- Insight List ----------------------------------------- */
+.insight-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: var(--sp-sm);
+}
+
+.insight-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: var(--fs-small);
+  color: rgba(250,243,232,0.8);
+  line-height: 1.6;
+}
+
+.insight-list li::before {
+  content: '';
+  width: 6px; height: 6px; min-width: 6px;
+  border-radius: 50%;
+  background: var(--color-primary-bright);
+  margin-top: 9px;
+}
+
+.insight-list.blue li::before { background: var(--color-secondary); }
+
+/* --- Brand Mark ------------------------------------ */
+.brand-mark {
+  font-size: 1rem;
+  font-weight: var(--fw-bold);
+  color: var(--color-white);
+  letter-spacing: 0.05em;
+}
+
+.brand-mark .dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  margin-left: 2px;
+  vertical-align: middle;
+}
+
+/* --- Logo Dot --------------------------------------------- */
+.logo-dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  background: var(--color-primary);
+  border-radius: 50%;
+}
+
+/* --- Circle Motifs (decorative) --------------------------- */
+.circle-motif {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  border: 1px solid rgba(184,134,11,0.06);
+}
+
+/* --- Slide Footer Bar ------------------------------------- */
+.slide-footer {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gradient-primary);
+}
+
+.slide-footer.blue { background: linear-gradient(135deg, var(--color-secondary), #D4A017); }
+.slide-footer.gradient { background: var(--gradient-full); }
+
+/* --- Struck text (deprecated items) ----------------------- */
+.struck { text-decoration: line-through; text-decoration-color: rgba(255,100,100,0.6); color: rgba(250,243,232,0.35); }
+
+
+/* ============================================================ */
